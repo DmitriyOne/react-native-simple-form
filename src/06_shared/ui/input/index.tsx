@@ -9,7 +9,7 @@ import {
   View,
   ViewStyle,
 } from "react-native"
-import { COLORS, TEXT_SIZE } from "../../config/constants"
+import { BORDER_RADIUS, COLORS, TEXT_SIZE } from "../../config/constants"
 import { FONT_FAMILY } from "../../config/fonts"
 import { EPosition } from "../../model/enum"
 
@@ -123,7 +123,7 @@ const styles = StyleSheet.create({
     fontSize: TEXT_SIZE.medium,
     color: COLORS.black,
     backgroundColor: COLORS.secondary,
-    borderRadius: 4,
+    borderRadius: BORDER_RADIUS.small,
     borderWidth: 1,
     borderColor: COLORS.transparent,
   },

@@ -8,7 +8,7 @@ import {
   View,
   ViewStyle,
 } from "react-native"
-import { COLORS, TEXT_SIZE } from "../../config/constants"
+import { BORDER_RADIUS, COLORS, TEXT_SIZE } from "../../config/constants"
 import { FONT_FAMILY } from "../../config/fonts"
 import { EPosition } from "../../model/enum"
 
@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
   dot: {
     width: 24,
     height: 24,
-    borderRadius: 12,
+    borderRadius: BORDER_RADIUS.large,
     borderWidth: 2,
     justifyContent: "center",
     alignItems: "center",
@@ -84,7 +84,7 @@ const styles = StyleSheet.create({
   dotFilled: {
     width: 12,
     height: 12,
-    borderRadius: 6,
+    borderRadius: BORDER_RADIUS.large,
     backgroundColor: COLORS.primary,
   },
   text: {
