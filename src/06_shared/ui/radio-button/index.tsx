@@ -51,7 +51,12 @@ export const RadioButton: FC<TProps> = ({
   ]
 
   return (
-    <Pressable onPress={onPress}>
+    <Pressable
+      onPress={onPress}
+      accessibilityRole='radio'
+      accessibilityState={{ checked: selected }}
+      accessibilityLabel={text}
+    >
       <View style={containerStyle}>
         {textPosition === "left" && <Text style={textStyle}>{text}</Text>}
         <View style={dotStyle}>
