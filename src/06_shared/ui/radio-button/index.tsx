@@ -23,7 +23,7 @@ type TProps = {
   selected: boolean
   onPress: () => void
   text: string
-  textPosition?: EPosition
+  textPosition?: Extract<EPosition, "left" | "right">
   styles?: TStylesProps
 }
 
