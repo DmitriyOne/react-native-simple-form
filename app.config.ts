@@ -4,7 +4,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
   name: "react-native-simple-form",
   slug: "react-native-simple-form",
-  version: "1.0.0",
+  version: process.env.PROJECT_VERSION || "1.0.0",
   orientation: "portrait",
   icon: "./assets/images/icon.png",
   scheme: "reactnativesimpleform",
