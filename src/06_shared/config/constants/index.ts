@@ -1,2 +1,4 @@
 export * from "./colors"
 export * from "./tabs"
+export * from "./text"
+export * from "./title"

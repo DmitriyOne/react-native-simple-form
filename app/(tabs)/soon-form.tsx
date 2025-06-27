@@ -1,4 +1,5 @@
-import { COLORS } from "@/src/06_shared/config/constants"
+import { COLORS, TITLE_SIZE } from "@/src/06_shared/config/constants"
+import { FONT_FAMILY } from "@/src/06_shared/config/fonts"
 import { paths } from "@/src/06_shared/config/routing"
 import { Link } from "expo-router"
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
@@ -11,7 +12,7 @@ export default function SoonFormPage() {
         asChild
       >
         <TouchableOpacity>
-          <Text>Click me and go to the Form page!</Text>
+          <Text style={styles.title}>Click me and go to the Form page!</Text>
         </TouchableOpacity>
       </Link>
     </View>
@@ -24,5 +25,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: COLORS.white,
+  },
+  title: {
+    fontFamily: FONT_FAMILY.montserrat_bold,
+    fontSize: TITLE_SIZE.small,
+    textAlign: "center",
   },
 })
