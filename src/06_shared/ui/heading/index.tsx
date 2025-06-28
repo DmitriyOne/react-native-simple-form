@@ -3,12 +3,12 @@ import { StyleProp, StyleSheet, Text, TextStyle } from "react-native"
 import { TITLE_SIZE } from "../../config/constants"
 import { FONT_FAMILY } from "../../config/fonts"
 
-type TStylesProps = {
+export type TTitleStylesProps = {
   heading?: StyleProp<TextStyle>
 }
 
 type TProps = PropsWithChildren & {
-  styles?: TStylesProps
+  styles?: TTitleStylesProps
 }
 
 export const Heading: FC<TProps> = ({

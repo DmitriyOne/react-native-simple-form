@@ -12,7 +12,7 @@ import { BORDER_RADIUS, COLORS, TEXT_SIZE } from "../../config/constants"
 import { FONT_FAMILY } from "../../config/fonts"
 import { EPosition } from "../../model/enum"
 
-type TStylesProps = {
+export type TRadioButtonStylesProps = {
   radioButtonContainer?: StyleProp<ViewStyle>
   radioButtonDot?: StyleProp<ViewStyle>
   radioButtonDotFilled?: StyleProp<ViewStyle>
@@ -24,7 +24,7 @@ type TProps = {
   onPress: () => void
   text: string
   textPosition?: Extract<EPosition, "left" | "right">
-  styles?: TStylesProps
+  styles?: TRadioButtonStylesProps
 }
 
 export const RadioButton: FC<TProps> = ({

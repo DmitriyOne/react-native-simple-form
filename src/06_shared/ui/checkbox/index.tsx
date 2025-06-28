@@ -18,7 +18,7 @@ type TIconColors = {
   inactive: string
 }
 
-type TStylesProps = {
+export type TCheckboxStylesProps = {
   checkboxContainer?: StyleProp<ViewStyle>
   checkboxText?: StyleProp<TextStyle>
   checkboxIcon?: StyleProp<TextStyle>
@@ -29,7 +29,7 @@ type TProps = PropsWithChildren & {
   checked: boolean
   onPress: () => void
   childrenPosition?: Extract<EPosition, "left" | "right">
-  styles?: TStylesProps
+  styles?: TCheckboxStylesProps
   iconSize?: number
   iconColors?: TIconColors
 }

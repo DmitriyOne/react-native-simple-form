@@ -12,14 +12,14 @@ import {
 import { BORDER_RADIUS, COLORS, TEXT_SIZE } from "../../config/constants"
 import { FONT_FAMILY } from "../../config/fonts"
 
-type TStylesProps = {
+export type TButtonStylesProps = {
   button?: StyleProp<ViewStyle>
   text?: StyleProp<TextStyle>
 }
 
 type TProps = PropsWithChildren &
   Omit<TouchableOpacityProps, "style"> & {
-    styles?: TStylesProps
+    styles?: TButtonStylesProps
     title?: string
     loading?: boolean
     loaderColor?: string

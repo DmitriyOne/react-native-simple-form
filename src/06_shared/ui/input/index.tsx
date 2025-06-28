@@ -13,7 +13,7 @@ import { BORDER_RADIUS, COLORS, TEXT_SIZE } from "../../config/constants"
 import { FONT_FAMILY } from "../../config/fonts"
 import { EPosition } from "../../model/enum"
 
-type TStylesProps = {
+export type TInputStylesProps = {
   inputContainer?: StyleProp<ViewStyle>
   input?: StyleProp<TextStyle>
   error?: StyleProp<TextStyle>
@@ -25,7 +25,7 @@ type TProps = Omit<TextInputProps, "value" | "onChangeText" | "style"> & {
   label: string
   value: string
   onChangeText: (v: string) => void
-  style?: TStylesProps
+  style?: TInputStylesProps
   errors?: string[]
   labelPosition?: Extract<EPosition, "top" | "bottom">
 }
