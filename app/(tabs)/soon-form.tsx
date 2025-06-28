@@ -1,20 +1,19 @@
 import { COLORS, TITLE_SIZE } from "@/src/06_shared/config/constants"
 import { FONT_FAMILY } from "@/src/06_shared/config/fonts"
 import { paths } from "@/src/06_shared/config/routing"
-import { Link } from "expo-router"
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native"
+import { Link } from "@/src/06_shared/ui/link"
+import { StyleSheet, View } from "react-native"
 
 export default function SoonFormPage() {
   return (
     <View style={styles.component}>
       <Link
         href={paths.form}
-        asChild
-      >
-        <TouchableOpacity>
-          <Text style={styles.title}>Click me and go to the Form page!</Text>
-        </TouchableOpacity>
-      </Link>
+        text='Click me and go to the Form page!'
+        styles={{
+          text: styles.title,
+        }}
+      />
     </View>
   )
 }
