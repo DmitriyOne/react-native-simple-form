@@ -1,4 +1,4 @@
-import Ionicons from "@expo/vector-icons/Ionicons"
+import MaterialIcons from "@expo/vector-icons/MaterialIcons"
 import { FC, PropsWithChildren } from "react"
 import {
   Pressable,
@@ -63,8 +63,8 @@ export const Checkbox: FC<TProps> = ({
         {children && childrenPosition === "left" && (
           <Text style={textStyle}>{children}</Text>
         )}
-        <Ionicons
-          name={checked ? "checkbox" : "checkbox-outline"}
+        <MaterialIcons
+          name={checked ? "check-box" : "check-box-outline-blank"}
           size={iconSize}
           color={checked ? iconColors.active : iconColors.inactive}
           style={customStyles?.checkboxIcon}
