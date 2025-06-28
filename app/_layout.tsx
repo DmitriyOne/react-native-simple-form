@@ -43,7 +43,7 @@ export default function RootLayout() {
               options={{ headerShown: false }}
             />
             <Stack.Screen
-              name='form'
+              name='create-wallet'
               options={{ headerShown: false }}
             />
             <Stack.Screen

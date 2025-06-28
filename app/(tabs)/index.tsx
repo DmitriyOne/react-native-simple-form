@@ -2,7 +2,7 @@ import { COLORS, TITLE_SIZE } from "@/src/06_shared/config/constants"
 import { FONT_FAMILY } from "@/src/06_shared/config/fonts"
 import { StyleSheet, Text, View } from "react-native"
 
-export default function IndexPage() {
+export default function Index() {
   return (
     <View style={styles.component}>
       <Text style={styles.title}>Index page</Text>

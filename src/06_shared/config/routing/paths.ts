@@ -1,7 +1,7 @@
 export const paths = {
   home: "/",
   soon_form: "/soon-form",
-  form: "/form",
+  create_wallet: "/create-wallet",
   privacy: "/privacy",
   terms: "/terms",
 } as const
