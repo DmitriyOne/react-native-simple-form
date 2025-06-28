@@ -1,5 +1,6 @@
 import { COLORS, TEXT_SIZE } from "@/src/06_shared/config/constants"
 import { FONT_FAMILY } from "@/src/06_shared/config/fonts"
+import { isValidArray } from "@/src/06_shared/model/utils"
 import { Checkbox, TCheckboxStylesProps } from "@/src/06_shared/ui/checkbox"
 import { Link } from "@/src/06_shared/ui/link"
 import { FC } from "react"
@@ -15,13 +16,13 @@ type TProps = {
   checked: boolean
   onChecked: () => void
   styles?: TStylesProps
-  error?: string
+  errors?: string[]
 }
 
 export const AcceptAgreement: FC<TProps> = ({
   checked,
   onChecked,
-  error,
+  errors,
   styles: customStyles = {},
 }) => {
   const checkboxStyles: TStylesProps = {
@@ -69,7 +70,15 @@ export const AcceptAgreement: FC<TProps> = ({
           })}
         </View>
       </Checkbox>
-      {error && <Text style={errorStyles}>{error}</Text>}
+      {isValidArray(errors) &&
+        errors.map((error) => (
+          <Text
+            key={error}
+            style={errorStyles}
+          >
+            {error}
+          </Text>
+        ))}
     </View>
   )
 }

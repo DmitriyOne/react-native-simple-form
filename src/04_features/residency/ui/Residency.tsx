@@ -1,5 +1,6 @@
 import { COLORS, TEXT_SIZE } from "@/src/06_shared/config/constants"
 import { FONT_FAMILY } from "@/src/06_shared/config/fonts"
+import { isValidArray } from "@/src/06_shared/model/utils"
 import {
   RadioButton,
   TRadioButtonStylesProps,
@@ -27,7 +28,7 @@ type TProps = {
   title: string
   value: TResidency
   onSelect: (value: TResidency) => void
-  error?: string
+  errors?: string[]
   styles?: TStylesProps
 }
 
@@ -35,7 +36,7 @@ export const Residency: FC<TProps> = ({
   title,
   value,
   onSelect,
-  error,
+  errors,
   styles: customStyles = {},
 }) => {
   const containerStyle = [styles.container, customStyles?.container]
@@ -74,7 +75,15 @@ export const Residency: FC<TProps> = ({
         />
       </View>
 
-      {error && <Text style={errorStyle}>{error}</Text>}
+      {isValidArray(errors) &&
+        errors.map((error) => (
+          <Text
+            key={error}
+            style={errorStyle}
+          >
+            {error}
+          </Text>
+        ))}
     </View>
   )
 }
