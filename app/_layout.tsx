@@ -46,6 +46,14 @@ export default function RootLayout() {
               name='form'
               options={{ headerShown: false }}
             />
+            <Stack.Screen
+              name='privacy'
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name='terms'
+              options={{ headerShown: false }}
+            />
           </Stack>
         </SafeAreaView>
       </Animated.View>
