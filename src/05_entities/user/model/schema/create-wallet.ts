@@ -2,6 +2,7 @@ import { z } from "zod"
 import {
   MAX_INN_LENGTH,
   MIN_INN_LENGTH,
+  REGEX,
   VALIDATION_MESSAGE,
 } from "../../config"
 
@@ -10,7 +11,8 @@ export const createWalletFormSchema = z.object({
   inn: z
     .string()
     .min(MIN_INN_LENGTH, VALIDATION_MESSAGE.inn.min)
-    .max(MAX_INN_LENGTH, VALIDATION_MESSAGE.inn.max),
+    .max(MAX_INN_LENGTH, VALIDATION_MESSAGE.inn.max)
+    .regex(REGEX.onlyDigits, VALIDATION_MESSAGE.inn.onlyDigits),
   acceptAgreement: z.boolean().refine((val) => val === true, {
     message: VALIDATION_MESSAGE.acceptAgreement.required,
   }),
