@@ -2,6 +2,7 @@ import { ConfigContext, ExpoConfig } from "expo/config"
 
 export default ({ config }: ConfigContext): ExpoConfig => ({
   ...config,
+  owner: "dmitriy-expo",
   name: "react-native-simple-form",
   slug: "react-native-simple-form",
   version: process.env.PROJECT_VERSION || "1.0.0",
@@ -11,6 +12,7 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   userInterfaceStyle: "automatic",
   jsEngine: "hermes",
   ios: {
+    bundleIdentifier: "com.dmitriy.reactnativesimpleform",
     supportsTablet: true,
   },
   android: {
@@ -42,5 +44,8 @@ export default ({ config }: ConfigContext): ExpoConfig => ({
   },
   extra: {
     ...config.extra,
+    eas: {
+      projectId: "2ad48f38-38ed-4766-9a53-cd5e68391d3d",
+    },
   },
 })
