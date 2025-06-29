@@ -1,1 +1,1 @@
-export type TResidency = "yes" | "no" | null
+export type TResidency = "yes" | "no" | ""

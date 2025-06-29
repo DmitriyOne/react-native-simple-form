@@ -2,10 +2,10 @@ import { useState } from "react"
 import { TResidency } from "../types"
 
 export const useResidency = () => {
-  const [residency, setResidency] = useState<TResidency>(null)
+  const [residency, setResidency] = useState<TResidency>("")
 
   const resetResidency = () => {
-    setResidency(null)
+    setResidency("")
   }
 
   return {
