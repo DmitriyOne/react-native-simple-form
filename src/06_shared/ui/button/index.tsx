@@ -11,6 +11,7 @@ import {
 } from "react-native"
 import { BORDER_RADIUS, COLORS, TEXT_SIZE } from "../../config/constants"
 import { FONT_FAMILY } from "../../config/fonts"
+import { useRefThrottle } from "../../model/hooks"
 
 export type TButtonStylesProps = {
   button?: StyleProp<ViewStyle>
@@ -32,9 +33,12 @@ export const Button: FC<TProps> = ({
   loading,
   disabled,
   activeOpacity = 0.8,
+  onPress,
   children,
   ...props
 }) => {
+  const throttledPress = useRefThrottle(onPress, 1000)
+
   const componentStyle = [
     styles.component,
     (loading || disabled) && styles.disabled,
@@ -47,6 +51,8 @@ export const Button: FC<TProps> = ({
       accessibilityLabel={title}
       activeOpacity={activeOpacity}
       style={componentStyle}
+      disabled={disabled || loading}
+      onPress={throttledPress}
       {...props}
     >
       {loading ? (
