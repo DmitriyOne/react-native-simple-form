@@ -93,6 +93,7 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: FONT_FAMILY.montserrat_regular,
     fontSize: TEXT_SIZE.medium,
+    paddingBottom: 4,
   },
   optionsWrapper: {
     flexDirection: "row",

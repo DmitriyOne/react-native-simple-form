@@ -81,7 +81,7 @@ export const Input = forwardRef<TextInput, TProps>(
           ref={ref}
           value={value}
           onChangeText={onChangeText}
-          placeholderTextColor={props.placeholderTextColor ?? COLORS.black}
+          placeholderTextColor={props.placeholderTextColor ?? COLORS.gray}
           style={inputStyles}
           {...props}
         />

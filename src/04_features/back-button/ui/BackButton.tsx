@@ -48,7 +48,7 @@ export const BackButton: FC<TProps> = ({
           name='chevron-back'
           size={iconSize}
           color={iconColor}
-          styles={customStyles?.backButtonIcon}
+          style={customStyles?.backButtonIcon}
         />
       )}
       {text && (

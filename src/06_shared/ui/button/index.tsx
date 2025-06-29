@@ -76,7 +76,7 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     paddingHorizontal: 6,
     alignItems: "center",
-    borderRadius: BORDER_RADIUS.small,
+    borderRadius: BORDER_RADIUS.medium,
   },
   disabled: {
     opacity: 0.5,
