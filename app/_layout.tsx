@@ -3,6 +3,7 @@ import { FONT_FAMILY } from "@/src/06_shared/config/fonts"
 import { useFonts } from "expo-font"
 import { Stack } from "expo-router"
 import * as SplashScreen from "expo-splash-screen"
+import { StatusBar } from "expo-status-bar"
 import { useEffect, useRef } from "react"
 import { Animated, StyleSheet } from "react-native"
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context"
@@ -35,6 +36,7 @@ export default function RootLayout() {
 
   return (
     <SafeAreaProvider>
+      <StatusBar style='auto' />
       <Animated.View style={styles.animatedContainer}>
         <SafeAreaView style={styles.saveArea}>
           <Stack>
