@@ -1,5 +1,6 @@
 import { Input, TInputStylesProps } from "@/src/06_shared/ui/input"
 import { FC } from "react"
+import { Keyboard } from "react-native"
 import { TEXT } from "../constant"
 
 type TStylesProps = TInputStylesProps & {}
@@ -26,6 +27,8 @@ export const EnterInn: FC<TProps> = ({
       placeholder={TEXT.placeholder}
       style={styles}
       errors={errors}
+      onSubmitEditing={() => Keyboard.dismiss()}
+      returnKeyType='done'
     />
   )
 }
