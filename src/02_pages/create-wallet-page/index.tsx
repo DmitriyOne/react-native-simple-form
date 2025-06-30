@@ -6,7 +6,10 @@ import { StyleSheet, View } from "react-native"
 export const CreateWalletPage = () => {
   return (
     <View style={styles.component}>
-      <FormHeader title='Fill in your details' />
+      <FormHeader
+        title='Fill in your details'
+        isFootnote
+      />
       <CreateWalletForm />
     </View>
   )
