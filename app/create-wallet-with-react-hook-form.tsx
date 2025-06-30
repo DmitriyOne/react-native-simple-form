@@ -1,5 +1,5 @@
-import { Text } from "react-native";
+import { CreateWalletWithReactHookFormPage } from "@/src/02_pages/create-wallet-with-rhf-page"
 
 export default function CreateWalletWithReactHookForm() {
-  return <Text>Create wallet with react hook form</Text>
+  return <CreateWalletWithReactHookFormPage />
 }
