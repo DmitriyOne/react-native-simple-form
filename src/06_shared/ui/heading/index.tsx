@@ -1,6 +1,6 @@
 import { FC, PropsWithChildren } from "react"
 import { StyleProp, StyleSheet, Text, TextStyle } from "react-native"
-import { TITLE_SIZE } from "../../config/constants"
+import { COLORS, TITLE_SIZE } from "../../config/constants"
 import { FONT_FAMILY } from "../../config/fonts"
 
 export type TTitleStylesProps = {
@@ -24,5 +24,6 @@ const styles = StyleSheet.create({
   component: {
     fontSize: TITLE_SIZE.medium,
     fontFamily: FONT_FAMILY.montserrat_bold,
+    color: COLORS.black,
   },
 })
