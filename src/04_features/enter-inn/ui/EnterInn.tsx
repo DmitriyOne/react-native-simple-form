@@ -1,7 +1,7 @@
+import { CREATE_WALLET_FORM_TEXT } from "@/src/05_entities/user/config"
 import { Input, TInputStylesProps } from "@/src/06_shared/ui/input"
 import { FC } from "react"
 import { Keyboard } from "react-native"
-import { TEXT } from "../constant"
 
 type TStylesProps = TInputStylesProps & {}
 
@@ -20,11 +20,11 @@ export const EnterInn: FC<TProps> = ({
 }) => {
   return (
     <Input
-      label={TEXT.label}
+      label={CREATE_WALLET_FORM_TEXT.label_inn}
       value={value}
       onChangeText={onChangeText}
       keyboardType='numeric'
-      placeholder={TEXT.placeholder}
+      placeholder={CREATE_WALLET_FORM_TEXT.placeholder_inn}
       style={styles}
       errors={errors}
       onSubmitEditing={() => Keyboard.dismiss()}

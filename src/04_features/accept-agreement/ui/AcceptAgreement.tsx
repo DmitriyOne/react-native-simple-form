@@ -1,3 +1,4 @@
+import { CREATE_WALLET_FORM_TEXT_ACCEPT_AGREEMENT } from "@/src/05_entities/user/config"
 import { COLORS, TEXT_SIZE } from "@/src/06_shared/config/constants"
 import { FONT_FAMILY } from "@/src/06_shared/config/fonts"
 import { isValidArray } from "@/src/06_shared/model/utils"
@@ -5,7 +6,6 @@ import { Checkbox, TCheckboxStylesProps } from "@/src/06_shared/ui/checkbox"
 import { Link } from "@/src/06_shared/ui/link"
 import { FC } from "react"
 import { StyleProp, StyleSheet, Text, TextStyle, View } from "react-native"
-import { TEXT } from "../config"
 
 type TStylesProps = TCheckboxStylesProps & {
   text?: StyleProp<TextStyle>
@@ -47,7 +47,7 @@ export const AcceptAgreement: FC<TProps> = ({
         styles={checkboxStyles}
       >
         <View style={styles.container}>
-          {TEXT.map((item) => {
+          {CREATE_WALLET_FORM_TEXT_ACCEPT_AGREEMENT.map((item) => {
             if (item.type === "text") {
               return (
                 <Text

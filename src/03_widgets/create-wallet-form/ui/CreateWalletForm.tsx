@@ -1,9 +1,14 @@
 import { AcceptAgreement } from "@/src/04_features/accept-agreement/ui"
 import { EnterInn } from "@/src/04_features/enter-inn/ui"
-import { TEXT } from "@/src/04_features/residency/config"
 import { Residency } from "@/src/04_features/residency/ui"
+import {
+  COLORS,
+  CREATE_WALLET_FORM_TEXT,
+  TEXT_SIZE,
+} from "@/src/06_shared/config/constants"
+import { FONT_FAMILY } from "@/src/06_shared/config/fonts"
 import { Button } from "@/src/06_shared/ui/button"
-import { StyleSheet } from "react-native"
+import { StyleSheet, Text } from "react-native"
 import { useCreateWalletForm } from "../model/hooks"
 
 export const CreateWalletForm = () => {
@@ -23,7 +28,7 @@ export const CreateWalletForm = () => {
   return (
     <>
       <Residency
-        title={TEXT.question}
+        title={CREATE_WALLET_FORM_TEXT.question}
         value={residency}
         onSelect={handleSelectResidency}
         errors={errors.residency}
@@ -40,6 +45,9 @@ export const CreateWalletForm = () => {
         onChecked={handleToggleAgreement}
         errors={errors.acceptAgreement}
       />
+      <Text style={styles.footnote}>
+        * {CREATE_WALLET_FORM_TEXT.footnote_cf}
+      </Text>
       <Button
         title='Create wallet'
         disabled={isDisabled}
@@ -60,5 +68,12 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: "auto",
+  },
+  footnote: {
+    color: COLORS.black,
+    fontSize: TEXT_SIZE.small,
+    fontFamily: FONT_FAMILY.montserrat_regular,
+    marginLeft: 4,
+    marginTop: 18,
   },
 })
