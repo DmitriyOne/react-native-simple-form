@@ -1,3 +1,4 @@
+import { TTextAndLink } from "@/src/06_shared/model/types"
 import { paths } from "../../../06_shared/config/routing"
 
 export const CREATE_WALLET_FORM_TEXT = {
@@ -12,7 +13,7 @@ export const CREATE_WALLET_FORM_TEXT = {
   footnote_cf: "The form was built using Custom Form.",
 }
 
-export const CREATE_WALLET_FORM_TEXT_ACCEPT_AGREEMENT = [
+export const CREATE_WALLET_FORM_TEXT_ACCEPT_AGREEMENT: TTextAndLink[] = [
   { type: "text", value: "I agree with the " },
   {
     type: "link",
