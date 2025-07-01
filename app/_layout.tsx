@@ -49,6 +49,10 @@ export default function RootLayout() {
               options={{ headerShown: false }}
             />
             <Stack.Screen
+              name='create-wallet-with-react-hook-form'
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
               name='privacy'
               options={{ headerShown: false }}
             />

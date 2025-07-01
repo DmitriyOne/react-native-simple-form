@@ -12,6 +12,7 @@ import {
 import { COLORS, TEXT_SIZE } from "../../config/constants"
 import { FONT_FAMILY } from "../../config/fonts"
 import { EPosition } from "../../model/enum"
+import { isValidArray } from "../../model/utils"
 
 type TIconColors = {
   active: string
@@ -19,12 +20,15 @@ type TIconColors = {
 }
 
 export type TCheckboxStylesProps = {
-  checkboxContainer?: StyleProp<ViewStyle>
+  container?: StyleProp<ViewStyle>
+  contentWrapper?: StyleProp<ViewStyle>
   checkboxText?: StyleProp<TextStyle>
   checkboxIcon?: StyleProp<TextStyle>
+  checkboxContent?: StyleProp<ViewStyle>
+  error?: StyleProp<TextStyle>
 }
 
-type TProps = PropsWithChildren & {
+export type TCheckboxProps = PropsWithChildren & {
   accessibilityLabel?: string
   checked: boolean
   onPress: () => void
@@ -32,9 +36,10 @@ type TProps = PropsWithChildren & {
   styles?: TCheckboxStylesProps
   iconSize?: number
   iconColors?: TIconColors
+  errors?: string[]
 }
 
-export const Checkbox: FC<TProps> = ({
+export const Checkbox: FC<TCheckboxProps> = ({
   accessibilityLabel,
   onPress,
   checked,
@@ -42,48 +47,73 @@ export const Checkbox: FC<TProps> = ({
   styles: customStyles = {},
   iconSize = 24,
   iconColors = { active: COLORS.primary, inactive: COLORS.black },
+  errors,
   children,
 }) => {
-  const containerStyle = [styles.container, customStyles?.checkboxContainer]
+  const hasError = isValidArray(errors)
 
-  const textStyle = [
-    styles.text,
-    childrenPosition === "left" ? { marginRight: 8 } : { marginLeft: 8 },
-    customStyles?.checkboxText,
+  const contentWrapperStyle = [
+    styles.contentWrapper,
+    customStyles?.contentWrapper,
   ]
+  const contentStyle = [
+    styles.checkboxContent,
+    childrenPosition === "left" ? { marginRight: 8 } : { marginLeft: 8 },
+    customStyles?.checkboxContent,
+  ]
+  const errorStyles = [styles.error, customStyles.error]
 
   return (
-    <Pressable
-      onPress={onPress}
-      accessibilityRole='checkbox'
-      accessibilityState={{ checked }}
-      accessibilityLabel={accessibilityLabel}
-    >
-      <View style={containerStyle}>
-        {children && childrenPosition === "left" && (
-          <Text style={textStyle}>{children}</Text>
-        )}
-        <MaterialIcons
-          name={checked ? "check-box" : "check-box-outline-blank"}
-          size={iconSize}
-          color={checked ? iconColors.active : iconColors.inactive}
-          style={customStyles?.checkboxIcon}
-        />
-        {children && childrenPosition === "right" && (
-          <Text style={textStyle}>{children}</Text>
-        )}
-      </View>
-    </Pressable>
+    <View style={customStyles?.container}>
+      <Pressable
+        onPress={onPress}
+        accessibilityRole='checkbox'
+        accessibilityState={{ checked }}
+        accessibilityLabel={accessibilityLabel}
+      >
+        <View style={contentWrapperStyle}>
+          {children && childrenPosition === "left" && (
+            <View style={contentStyle}>{children}</View>
+          )}
+          <MaterialIcons
+            name={checked ? "check-box" : "check-box-outline-blank"}
+            size={iconSize}
+            color={checked ? iconColors.active : iconColors.inactive}
+            style={customStyles?.checkboxIcon}
+          />
+          {children && childrenPosition === "right" && (
+            <View style={contentStyle}>{children}</View>
+          )}
+        </View>
+      </Pressable>
+
+      {hasError &&
+        errors.map((error) => (
+          <Text
+            key={error}
+            style={errorStyles}
+          >
+            {error}
+          </Text>
+        ))}
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
+  contentWrapper: {
     flexDirection: "row",
     alignItems: "center",
+  },
+  checkboxContent: {
+    flexDirection: "row",
   },
   text: {
     fontSize: TEXT_SIZE.small,
     fontFamily: FONT_FAMILY.montserrat_regular,
+  },
+  error: {
+    color: COLORS.error,
+    fontSize: TEXT_SIZE.xsmall,
   },
 })

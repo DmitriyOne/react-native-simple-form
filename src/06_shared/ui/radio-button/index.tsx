@@ -19,7 +19,7 @@ export type TRadioButtonStylesProps = {
   radioButtonText?: StyleProp<TextStyle>
 }
 
-type TProps = {
+export type TRadioButtonProps = {
   selected: boolean
   onPress: () => void
   text: string
@@ -27,7 +27,7 @@ type TProps = {
   styles?: TRadioButtonStylesProps
 }
 
-export const RadioButton: FC<TProps> = ({
+export const RadioButton: FC<TRadioButtonProps> = ({
   selected,
   onPress,
   text,

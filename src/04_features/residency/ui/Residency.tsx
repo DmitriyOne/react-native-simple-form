@@ -1,3 +1,4 @@
+import { CREATE_WALLET_FORM_TEXT } from "@/src/05_entities/user/config"
 import { COLORS, TEXT_SIZE } from "@/src/06_shared/config/constants"
 import { FONT_FAMILY } from "@/src/06_shared/config/fonts"
 import { isValidArray } from "@/src/06_shared/model/utils"
@@ -14,7 +15,6 @@ import {
   View,
   ViewStyle,
 } from "react-native"
-import { TEXT } from "../config"
 import { TResidency } from "../model/types"
 
 type TStylesProps = TRadioButtonStylesProps & {
@@ -64,13 +64,13 @@ export const Residency: FC<TProps> = ({
         <RadioButton
           selected={value === "yes"}
           onPress={() => onSelect("yes")}
-          text={TEXT.answers.yes}
+          text={CREATE_WALLET_FORM_TEXT.answers_resident.yes}
           styles={radioButtonStyles}
         />
         <RadioButton
           selected={value === "no"}
           onPress={() => onSelect("no")}
-          text={TEXT.answers.no}
+          text={CREATE_WALLET_FORM_TEXT.answers_resident.no}
           styles={radioButtonStyles}
         />
       </View>
