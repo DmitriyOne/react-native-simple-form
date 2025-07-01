@@ -1,7 +1,6 @@
 import { CREATE_WALLET_FORM_TEXT_ACCEPT_AGREEMENT } from "@/src/05_entities/user/config"
 import { COLORS, TEXT_SIZE } from "@/src/06_shared/config/constants"
 import { FONT_FAMILY } from "@/src/06_shared/config/fonts"
-import { isValidArray } from "@/src/06_shared/model/utils"
 import { Checkbox, TCheckboxStylesProps } from "@/src/06_shared/ui/checkbox"
 import { Link } from "@/src/06_shared/ui/link"
 import { FC } from "react"
@@ -26,7 +25,8 @@ export const AcceptAgreement: FC<TProps> = ({
   styles: customStyles = {},
 }) => {
   const checkboxStyles: TStylesProps = {
-    checkboxContainer: customStyles.checkboxContainer,
+    container: customStyles.container,
+    contentWrapper: customStyles.contentWrapper,
     checkboxText: customStyles.checkboxText,
     checkboxIcon: customStyles.checkboxIcon,
   }
@@ -37,71 +37,54 @@ export const AcceptAgreement: FC<TProps> = ({
     text: styles.link,
   }
 
-  const errorStyles = [styles.error, customStyles.error]
-
   return (
-    <View>
-      <Checkbox
-        checked={checked}
-        onPress={onChecked}
-        styles={checkboxStyles}
-      >
-        <View style={styles.container}>
-          {CREATE_WALLET_FORM_TEXT_ACCEPT_AGREEMENT.map((item) => {
-            if (item.type === "text") {
-              return (
-                <Text
-                  key={item.value}
-                  style={textStyles}
-                >
-                  {item.value}
-                </Text>
-              )
-            } else {
-              return (
-                <Link
-                  key={item.value}
-                  text={item.value}
-                  href={item.href!}
-                  styles={linkStyles}
-                />
-              )
-            }
-          })}
-        </View>
-      </Checkbox>
-      {isValidArray(errors) &&
-        errors.map((error) => (
-          <Text
-            key={error}
-            style={errorStyles}
-          >
-            {error}
-          </Text>
-        ))}
-    </View>
+    <Checkbox
+      checked={checked}
+      onPress={onChecked}
+      styles={checkboxStyles}
+      accessibilityLabel='Accept agreement'
+      errors={errors}
+    >
+      <View style={styles.container}>
+        {CREATE_WALLET_FORM_TEXT_ACCEPT_AGREEMENT.map((item) => {
+          if (item.type === "text") {
+            return (
+              <Text
+                key={item.value}
+                style={textStyles}
+              >
+                {item.value}
+              </Text>
+            )
+          } else {
+            return (
+              <Link
+                key={item.value}
+                text={item.value}
+                href={item.href!}
+                styles={linkStyles}
+              />
+            )
+          }
+        })}
+      </View>
+    </Checkbox>
   )
 }
 
 const styles = StyleSheet.create({
-  component: {},
+  container: {
+    width: "100%",
+    flexDirection: "row",
+    alignItems: "center",
+  },
   text: {
-    display: "flex",
-    justifyContent: "center",
     fontFamily: FONT_FAMILY.montserrat_regular,
     fontSize: TEXT_SIZE.small,
     color: COLORS.black,
   },
-  container: {
-    flexDirection: "row",
-    alignItems: "center",
-  },
   link: {
     color: COLORS.primary,
     fontSize: TEXT_SIZE.small,
-  },
-  error: {
-    color: COLORS.error,
-    fontSize: TEXT_SIZE.xsmall,
   },
 })
