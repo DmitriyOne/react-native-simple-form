@@ -1,11 +1,8 @@
 import { AcceptAgreement } from "@/src/04_features/accept-agreement/ui"
 import { EnterInn } from "@/src/04_features/enter-inn/ui"
 import { Residency } from "@/src/04_features/residency/ui"
-import {
-  COLORS,
-  CREATE_WALLET_FORM_TEXT,
-  TEXT_SIZE,
-} from "@/src/06_shared/config/constants"
+import { CREATE_WALLET_FORM_TEXT } from "@/src/05_entities/user/config"
+import { COLORS, TEXT_SIZE } from "@/src/06_shared/config/constants"
 import { FONT_FAMILY } from "@/src/06_shared/config/fonts"
 import { Button } from "@/src/06_shared/ui/button"
 import { StyleSheet, Text } from "react-native"
@@ -28,7 +25,7 @@ export const CreateWalletForm = () => {
   return (
     <>
       <Residency
-        title={CREATE_WALLET_FORM_TEXT.question}
+        title={CREATE_WALLET_FORM_TEXT.question_resident}
         value={residency}
         onSelect={handleSelectResidency}
         errors={errors.residency}
@@ -71,7 +68,7 @@ const styles = StyleSheet.create({
   },
   footnote: {
     color: COLORS.black,
-    fontSize: TEXT_SIZE.small,
+    fontSize: TEXT_SIZE.xsmall,
     fontFamily: FONT_FAMILY.montserrat_regular,
     marginLeft: 4,
     marginTop: 18,
